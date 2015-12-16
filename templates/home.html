@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+{% block head_title %}Welcome | {{ block.super }}{% endblock %}
+  <!-- Main component for a primary marketing message or call to action -->
+
+<style>
+{% block style %}
+.jumbotron {
+  background-color: #0e3d14;
+  color:#FFF;
+}
+{% endblock %}
+</style>
+
+{% block jumbotron %}
+{% if not request.user.is_authenticated %}
+<div class="jumbotron">
+ <div class="container">
+  
+
+  <div class="row">
+    <div class="col-sm-6"> 
+    <h1>Try Django 1.8</h1>
+    <p>The MVP Landing project is designed to get your project started. The goal is to help you launch as soon as possible with the least amount of investment using time or money.Join Us today.</p>
+    <p>
+    <a class="btn btn-lg btn-primary" href="" role="button">Join Us &raquo;</a>
+    </p>
+    </div>  
+    <div class='col-sm-6' style="height:315px; ">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/2uLYO1LUf6Q" frameborder="0" allowfullscreen></iframe>    
+
+     </div>
+    </div>
+</div>
+  
+</div> 
+{% endif %}   
+{% endblock %}
+
+{% block content %}
+{% if request.user.is_authenticated %}
+<h1>You are logged in!</h1>
+{% if queryset %}
+  <h2>Welcome staff</h2>
+  <table class='table'>
+  {% for instance in queryset %}
+  <tr><td>{{ forloop.counter }}</td><td>{{ instance.email }}</td><td>{{ instance.full_name }}</td><td>{{ instance.timestamp|timesince }}</td></tr>
+      {% if instance.email == "badralkh@mit.edu" %}
+      <tr><td>is equal</td></tr>
+      {% endif %}
+  {% endfor %}
+  </table>
+  
+{% endif%}
+{% else %}
+<div class="row">
+  <div class="col-sm-3 pull-right">
+      <p class='lead text-align-center'>{{ title }}</p>
+      {{ user }}
+      {{ request.user }}
+      <form method='POST' action=''> {% csrf_token %}
+      	{{ form|crispy }}
+    -  	<input class='btn btn-lg btn-primary' type='submit' value='Sign Up'>
+      </form>
+  </div>
+    <dockiv class="col-sm-3">
+    <p class='lead text-align-center'>Django &amp; Bootstrap </p>
+ 
+        <img src="{% static "img/marketing1.jpg" %}" class='img-responsive'/>
+    </div>
+
+    <div class="col-sm-3">
+    <p class='lead text-align-center'>Created for Starters</p>
+    
+    <span class='fa-stack fa-lg fa-5x'>
+    <i class="fa fa-comment-o fa-stack-2x"></i>
+    <i class="fa fa-bolt fa-stack-1x"></i>
+    </span>
+    </div>
+    <div class="col-sm-3">
+    <p class='lead text-align-center'>Always Open source <br/><br/>
+   <!--  <i class="fa fa-circle-o-notch fa-spin fa-5x"></i>
+    --> </p>
+    <span class="fa-stack fa-lg fa-5x">
+    <i class="fa fa-circle-o-notch fa-stack-2x"></i>
+    <!-- <i class="fa fa-square-o fa-stack-2x"></i> -->
+    <i class="fa fa-github fa-stack-1x"></i>
+    </span>
+    </div>
+
+</div>
+{% endif %}
+{% endblock %}
