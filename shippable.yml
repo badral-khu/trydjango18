@@ -7,11 +7,7 @@ services:
   - postgres
 
 addons:
-  firefox: "17.0"
-script:
-  - sudo npm install
-  - export DISPLAY=:99.0
-  - xvfb-run --server-args="-ac" npm test
+  firefox: "40.0"
 
 env:
   global:
@@ -21,6 +17,9 @@ env:
 
 build:
   ci:
+    - sudo npm install
+    - export DISPLAY=:99.0
+    - xvfb-run --server-args="-ac" npm test
     - pip install -r requirements.txt
     - coverage run manage.py test
   
