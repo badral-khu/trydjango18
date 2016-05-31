@@ -6,6 +6,13 @@ python:
 services:
   - postgres
 
+addons:
+  firefox: "17.0"
+script:
+  - sudo npm install
+  - export DISPLAY=:99.0
+  - xvfb-run --server-args="-ac" npm test
+
 env:
   global:
     # this secure variable is the json key for the app engine project's
@@ -16,7 +23,7 @@ build:
   ci:
     - pip install -r requirements.txt
     - coverage run manage.py test
-
+  
   # on_success:
     # using the Google Cloud SDK's beta tools for managing Google App Engine;
     # details at https://cloud.google.com/sdk/gcloud-app
