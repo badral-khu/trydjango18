@@ -15,9 +15,8 @@ env:
 build:
   ci:
     - pip install -r requirements.txt
-    - mkdir -p shippable/testresults
-    - mkdir -p shippable/codecoverage
     - coverage run manage.py test
+
   # on_success:
     # using the Google Cloud SDK's beta tools for managing Google App Engine;
     # details at https://cloud.google.com/sdk/gcloud-app
