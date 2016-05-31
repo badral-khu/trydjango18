@@ -17,7 +17,8 @@ import re
 
 class RegisterTest(LiveServerTestCase): 
     def setUp(self):
-    	self.driver = webdriver.Chrome()
+    	# self.driver = webdriver.Chrome()
+    	self.driver = webdriver.Firefox()
         self.driver.implicitly_wait(3)
         self.SERVER_URL=self.live_server_url
         self.driver.maximize_window()
@@ -34,7 +35,7 @@ class RegisterTest(LiveServerTestCase):
 		# print "input_username=", input_username
 		# self.assertEquals(input_username,)
 		self.assertTrue(input_username!=None)
-		
+
         # ok_button.click()
 		
 
