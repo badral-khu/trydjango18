@@ -17,8 +17,8 @@ env:
 
 build:
   ci:
-    - export DISPLAY=:99.0
-    - xvfb-run --server-args="-ac" npm test
+    # - export DISPLAY=:99.0
+    # - xvfb-run --server-args="-ac" npm test
     - pip install -r requirements.txt
     - coverage run manage.py test
   
