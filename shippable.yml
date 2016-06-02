@@ -17,11 +17,12 @@ env:
 
 build:
   ci:
-    # - export DISPLAY=:99.0
-    # - xvfb-run --server-args="-ac" npm test
     - pip install -r requirements.txt
     - coverage run manage.py test
-  
+
+  # - export DISPLAY=:99.0
+  # - xvfb-run --server-args="-ac" npm test
+
   # on_success:
     # using the Google Cloud SDK's beta tools for managing Google App Engine;
     # details at https://cloud.google.com/sdk/gcloud-app
