@@ -12,7 +12,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support import expected_conditions as EC
 import time
-# from django.core import mail
+from django.core import mail
 import re
 
 class RegisterTest(LiveServerTestCase): 
