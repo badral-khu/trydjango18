@@ -22,13 +22,13 @@ class RegisterTest(LiveServerTestCase):
 		self.driver.implicitly_wait(3)
 		self.SERVER_URL=self.live_server_url
 		self.driver.maximize_window()
- 		self.driver.get(self.SERVER_URL)
+		self.driver.get(self.SERVER_URL)
 		# mail.outbox=[]
 
-    def tearDown(self):
-        self.driver.quit()
+	def tearDown(self):
+		self.driver.quit()
 
-    def test_register(self):
+	def test_register(self):
 		register_in_link = self.driver.find_element_by_link_text("Register")  
 		register_in_link.click()
 		input_username =  self.driver.find_element_by_id("id_username")
@@ -36,7 +36,7 @@ class RegisterTest(LiveServerTestCase):
 		# self.assertEquals(input_username,)
 		self.assertTrue(input_username!=None)
 
-        # ok_button.click()
+		# ok_button.click()
 		
 
 
