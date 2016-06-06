@@ -18,7 +18,7 @@ env:
 build:
   ci:
     - pip install -r requirements.txt
-    - xvfb :10 -ac &
+    - xvfb-run :10 -ac &
     - export DISPLAY=:10 
     - coverage run manage.py test
   # 
