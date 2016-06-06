@@ -17,14 +17,16 @@ env:
 before_install:
   - apt-get update
   - apt-get -y install xvfb
-script:
+  - locate xvfb
+  
+scri  pt:
     - sudo npm install
 build:
   ci:
     - pip install -r requirements.txt
     - export DISPLAY=:10 
-    - /etc/init.d/xvfb :10 -ac &
-    
+    - xvfb :10 -ac &
+
     # - export DISPLAY=:99.0
     # - xvfb-run --auto-servernum npm test
     
