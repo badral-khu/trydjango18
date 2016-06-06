@@ -1,0 +1,17 @@
+{
+  "name": "trydjango18",
+  "main": "./lib",
+  "author": "shippable",
+  "version": "0.0.0",
+  "keywords": [],
+  "homepage": "https://github.com/badral-khu/trydjango18.git",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/badral-khu/trydjango18"
+  },
+  "description": "",
+  "contributors": [],
+  "dependencies": {
+    "nightwatch": "~0.5.10"
+  }
+}
