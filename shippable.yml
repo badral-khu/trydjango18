@@ -18,8 +18,8 @@ env:
 build:
   ci:
     - pip install -r requirements.txt
-    - xvfb-run :10 -ac &
     - export DISPLAY=:10 
+    - xvfb-run --help
     - coverage run manage.py test
   # 
   # - xvfb-run --server-args="-ac" npm test
