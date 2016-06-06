@@ -37,8 +37,4 @@ class RegisterTest(LiveServerTestCase):
 		self.assertTrue(input_username!=None)
 
 		# ok_button.click()
-		
-
-
-h
 
