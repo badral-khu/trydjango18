@@ -22,13 +22,14 @@ script:
 build:
   ci:
     - pip install -r requirements.txt
-    # - export DISPLAY=:10 
-    # - xvfb :10 -ac &
-    - export DISPLAY=:99.0
+    - export DISPLAY=:10 
+    - /etc/init.d/xvfb :10 -ac &
+    
+    # - export DISPLAY=:99.0
     # - xvfb-run --auto-servernum npm test
     
-    - xvfb-run --server-args="-ac" echo
-    - coverage run manage.py test
+    # - xvfb-run --server-args="-ac" echo
+    # - coverage run manage.py test
  
   # on_success:
     # using the Google Cloud SDK's beta tools for managing Google App Engine;
