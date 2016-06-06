@@ -7,7 +7,7 @@ services:
   - postgres
   - selenium
 addons:
-  firefox: "29.0"
+  firefox: "47.0"
 env:
   global:
     # this secure variable is the json key for the app engine project's
@@ -17,9 +17,10 @@ env:
 build:
   ci:
     - pip install -r requirements.txt
+    - export DISPLAY=:99.0 
+    xvfb :99.0 -ac &
     - coverage run manage.py test
-
-  # - export DISPLAY=:99.0
+  # 
   # - xvfb-run --server-args="-ac" npm test
 
   # on_success:
