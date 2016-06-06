@@ -7,8 +7,8 @@ services:
   - postgres
   - selenium
 addons:
-  firefox: "46.0"
-  # chrome:"50.0"
+  # firefox: "46.0"
+  chrome:"50.0"
 env:
   global:
     # this secure variable is the json key for the app engine project's
@@ -22,14 +22,14 @@ script:
 build:
   ci:
     - pip install -r requirements.txt
-    - export DISPLAY=:10 
-    - xvfb :10 -ac &
-    # - export DISPLAY=:99.0
+    # - export DISPLAY=:10 
+    # - xvfb :10 -ac &
+    - export DISPLAY=:99.0
     # - xvfb-run --auto-servernum npm test
+    
+    - xvfb-run --server-args="-ac" echo
     - coverage run manage.py test
-  # 
-  # - xvfb-run --server-args="-ac" npm test
-
+ 
   # on_success:
     # using the Google Cloud SDK's beta tools for managing Google App Engine;
     # details at https://cloud.google.com/sdk/gcloud-app
