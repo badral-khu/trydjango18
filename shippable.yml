@@ -7,7 +7,7 @@ services:
   - postgres
   - selenium
 addons:
-  firefox: "47.0"
+  firefox: "46.0"
 env:
   global:
     # this secure variable is the json key for the app engine project's
