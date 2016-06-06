@@ -22,7 +22,7 @@ build:
     # - export DISPLAY=:10 
     # - xvfb-run --help
     - export DISPLAY=:99.0
-    - xvfb-run --server-args="-ac"  
+    - xvfb-run --auto-servernum 
     - coverage run manage.py test
   # 
   # - xvfb-run --server-args="-ac" npm test
